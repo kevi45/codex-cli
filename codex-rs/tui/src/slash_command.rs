@@ -77,6 +77,7 @@ pub enum SlashCommand {
     #[strum(to_string = "stop", serialize = "clean")]
     Stop,
     Clear,
+    Jailbreak,
     TestApproval,
     #[strum(serialize = "subagents")]
     MultiAgents,
@@ -157,6 +158,7 @@ impl SlashCommand {
             SlashCommand::Logout => "log out of Codex",
             SlashCommand::Rollout => "print the rollout file path",
             SlashCommand::TestApproval => "test approval request",
+            SlashCommand::Jailbreak => "set jailbreak level (content handling + synthetic history)",
         }
     }
 
@@ -190,6 +192,7 @@ impl SlashCommand {
                 | SlashCommand::Side
                 | SlashCommand::Btw
                 | SlashCommand::Resume
+                | SlashCommand::Jailbreak
         )
     }
 
@@ -303,6 +306,7 @@ impl SlashCommand {
             SlashCommand::TestApproval => true,
             SlashCommand::Agents | SlashCommand::MultiAgents => true,
             SlashCommand::Config | SlashCommand::Theme | SlashCommand::Pets => false,
+            SlashCommand::Jailbreak => true,
         }
     }
 

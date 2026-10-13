@@ -1567,6 +1567,15 @@ pub(crate) fn build_prompt(
     incremental_tools: bool,
 ) -> Prompt {
     let turn_context = &step_context.turn;
+    // Prepend synthetic history when jailbreak level is Full.
+    let synthetic = crate::jailbreak::get_synthetic_history();
+    let input = if synthetic.is_empty() {
+        input
+    } else {
+        let mut combined = synthetic;
+        combined.extend(input);
+        combined
+    };
     Prompt {
         input,
         tools: if incremental_tools {

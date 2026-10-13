@@ -1551,8 +1551,18 @@ impl Session {
 
     pub(crate) async fn get_base_instructions(&self) -> BaseInstructions {
         let state = self.state.lock().await;
+        let mut text = state.session_configuration.base_instructions.clone();
+
+        // Dynamically append the jailbreak content-handling section so that
+        // mid-session level changes via /jailbreak take effect immediately.
+        let content_handling = crate::jailbreak::get_content_handling_section();
+        if !content_handling.is_empty() {
+            text.push_str("\n\n");
+            text.push_str(content_handling);
+        }
+
         BaseInstructions {
-            text: state.session_configuration.base_instructions.clone(),
+            text,
             provenance: state.base_instructions_provenance.clone(),
         }
     }
