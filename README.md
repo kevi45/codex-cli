@@ -1,4 +1,16 @@
 <p align="center"><strong>Codex CLI</strong> is a coding agent from OpenAI that runs locally on your computer.
+
+## This Custom Dist
+
+This fork tracks the official Codex CLI while layering in a more permissive and operator-controlled distribution.
+
+- `jailbreak` modes with selectable content-handling behavior
+- richer TUI status indicators and surfaced runtime state
+- Claude Code-style keybinds and interaction polish
+- broader MCP transport support, including more remote transport options
+- expanded model catalog support, including long-context 1M-class models
+- custom workflow tweaks aimed at local-first power users
+
 <p align="center">
   <img src="https://github.com/openai/codex/blob/main/.github/codex-cli-splash.png" alt="Codex CLI splash" width="80%" />
 </p>
