@@ -98,6 +98,7 @@ mod exec_policy;
 mod git_info_tests;
 mod guardian;
 pub mod guardian_review;
+pub mod jailbreak;
 mod hook_mcp_executor;
 mod hook_runtime;
 mod image_preparation;

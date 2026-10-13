@@ -1,4 +1,5 @@
 pub mod account;
+pub mod jailbreak;
 mod agent_path;
 pub mod auth;
 mod response_item_id;

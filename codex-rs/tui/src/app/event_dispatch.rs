@@ -158,6 +158,9 @@ impl App {
             event => (event, None),
         };
         match event {
+            AppEvent::JailbreakLevelChanged => {
+                self.chat_widget.refresh_status_line();
+            }
             AppEvent::OpenDaemonMenu => self.open_daemon_menu(),
             AppEvent::ConfirmDaemonRestart => self.confirm_daemon_restart(),
             AppEvent::RunDaemonRestart => {

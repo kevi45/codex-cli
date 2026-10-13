@@ -295,6 +295,8 @@ pub(crate) struct AgentPickerThreadRefresh {
 #[allow(clippy::large_enum_variant)]
 #[derive(Debug, IntoStaticStr)]
 pub(crate) enum AppEvent {
+    /// Jailbreak level changed via /jailbreak command; refresh dependent UI.
+    JailbreakLevelChanged,
     AccountEmailLoaded {
         request_id: uuid::Uuid,
         email: Option<String>,
